@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      (function () {
+        var root = document.documentElement;
+        var text = "0";
+        var contrast = "normal";
+        var links = "off";
+        var font = "default";
+        var motion = "on";
+        try {
+          var raw = localStorage.getItem("cabinet-a11y");
+          if (raw) {
+            var saved = JSON.parse(raw);
+            if (saved.text === 1 || saved.text === 2) text = String(saved.text);
+            if (saved.contrast) contrast = "high";
+            if (saved.links) links = "on";
+            if (saved.readable) font = "readable";
+            if (saved.motion === "on" || saved.motion === "off") motion = saved.motion;
+          } else if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            motion = "off";
+          }
+        } catch (error) {}
+        root.lang = "he";
+        root.dir = "rtl";
+        root.dataset.text = text;
+        root.dataset.contrast = contrast;
+        root.dataset.links = links;
+        root.dataset.font = font;
+        root.dataset.motion = motion;
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta
+      name="description"
+      content="פריטים מהאוסף הפרטי."
+    />
+    <meta name="theme-color" content="#ffcb05" />
+    <meta name="color-scheme" content="light" />
+    <title>פריטי יד שנייה להחלפה</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700&family=Heebo:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,650;1,6..72,500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .noscript {
+        font-family: "Segoe UI", Arial, sans-serif;
+        margin: 2rem auto;
+        max-width: 40rem;
+        padding: 0 1rem;
+        line-height: 1.6;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      <div class="noscript">
+        <p lang="he" dir="rtl">
+          הדף צריך JavaScript כדי להציג את הפריטים ואת אפשרויות הנגישות.
+        </p>
+        <p lang="en" dir="ltr">This page needs JavaScript to show the items and the accessibility options.</p>
+      </div>
+    </noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
