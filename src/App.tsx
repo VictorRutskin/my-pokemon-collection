@@ -22,6 +22,17 @@ function bySetThenTitle(a: Listing, b: Listing) {
   return a.setHe.localeCompare(b.setHe, "he") || byTitle(a, b)
 }
 
+/** Available items stay in the chosen order. Anything else follows them. */
+function availabilityRank(item: Listing) {
+  if (item.status === "available") return 0
+  if (item.status === "reserved") return 1
+  return 2
+}
+
+function withAvailability(compare: (a: Listing, b: Listing) => number) {
+  return (a: Listing, b: Listing) => availabilityRank(a) - availabilityRank(b) || compare(a, b)
+}
+
 function amounts(item: Listing) {
   return item.offers.length > 0 ? item.offers.map((offer) => offer.priceIls) : item.priceIls === null ? [] : [item.priceIls]
 }
@@ -44,7 +55,7 @@ function groupListings(items: Listing[], sortKey: SortKey, c: Copy) {
       .map((kind) => ({
         id: kind,
         title: kindLabel(c, kind),
-        items: items.filter((item) => item.kind === kind).sort(bySetThenTitle),
+        items: items.filter((item) => item.kind === kind).sort(withAvailability(bySetThenTitle)),
       }))
       .filter((group) => group.items.length > 0)
   }
@@ -56,12 +67,12 @@ function groupListings(items: Listing[], sortKey: SortKey, c: Copy) {
       title: sample.setHe,
       items: items
         .filter((item) => item.setId === sample.setId)
-        .sort((a, b) => productKinds.indexOf(a.kind) - productKinds.indexOf(b.kind) || byTitle(a, b)),
+        .sort(withAvailability((a, b) => productKinds.indexOf(a.kind) - productKinds.indexOf(b.kind) || byTitle(a, b))),
     }))
   }
   const sorted = [...items]
-  if (sortKey === "name") sorted.sort(byTitle)
-  else sorted.sort(byPrice(sortKey === "price-asc" ? 1 : -1))
+  if (sortKey === "name") sorted.sort(withAvailability(byTitle))
+  else sorted.sort(withAvailability(byPrice(sortKey === "price-asc" ? 1 : -1)))
   return [{ id: "flat", title: "", items: sorted }]
 }
 
