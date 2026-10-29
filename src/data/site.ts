@@ -8,5 +8,5 @@ export const site = {
   phone: "",
   locationHe: "",
   locationEn: "",
-  updated: "2026-10-28",
+  updated: "2026-10-29",
 }
