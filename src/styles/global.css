@@ -625,6 +625,7 @@ html[data-motion="on"] .set-chevron { transition: transform 0.16s ease; }
 .card[data-kind="mini-tin"] .card-inner { border-top: 6px solid #0f8a4b; }
 .card[data-kind="bundle"] .card-inner { border-top: 6px solid #e36b00; }
 .card[data-kind="collection"] .card-inner { border-top: 6px solid #0b7c9a; }
+.card[data-kind="graded"] .card-inner { border-top: 6px solid #5c4d8a; }
 .card[data-kind="other"] .card-inner { border-top: 6px solid var(--ink); }
 .motif {
   position: absolute;
@@ -1016,6 +1017,7 @@ html[data-motion="on"] .card:focus-visible .sheen { animation: sheen 0.8s ease; 
   .card[data-kind="mini-tin"] .card-inner,
   .card[data-kind="bundle"] .card-inner,
   .card[data-kind="collection"] .card-inner,
+  .card[data-kind="graded"] .card-inner,
   .card[data-kind="other"] .card-inner { border-top: 1px solid var(--line); }
   .card[data-kind="etb"] .card-inner { border-inline-start: 6px solid var(--blue); }
   .card[data-kind="booster-box"] .card-inner { border-inline-start: 6px solid var(--red); }
@@ -1024,6 +1026,7 @@ html[data-motion="on"] .card:focus-visible .sheen { animation: sheen 0.8s ease; 
   .card[data-kind="mini-tin"] .card-inner { border-inline-start: 6px solid #0f8a4b; }
   .card[data-kind="bundle"] .card-inner { border-inline-start: 6px solid #e36b00; }
   .card[data-kind="collection"] .card-inner { border-inline-start: 6px solid #0b7c9a; }
+  .card[data-kind="graded"] .card-inner { border-inline-start: 6px solid #5c4d8a; }
   .card[data-kind="other"] .card-inner { border-inline-start: 6px solid var(--ink); }
   .sheet {
     width: 100%;

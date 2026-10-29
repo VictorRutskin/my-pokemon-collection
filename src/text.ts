@@ -9,6 +9,7 @@ const kindCopyKey = {
   "mini-tin": "kindTin",
   bundle: "kindBundle",
   collection: "kindCollection",
+  graded: "kindGraded",
   other: "kindOther",
 } as const satisfies Record<ProductKind, keyof Copy>
 
