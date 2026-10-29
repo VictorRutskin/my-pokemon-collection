@@ -8,14 +8,14 @@
 export type ListingStatus = "available" | "reserved" | "sold"
 
 export const productKinds = [
-  "etb",
+  "collection",
   "booster-box",
   "blister",
   "pack",
   "mini-tin",
   "bundle",
-  "collection",
   "other",
+  "etb",
 ] as const
 
 export type ProductKind = (typeof productKinds)[number]
