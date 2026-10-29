@@ -15,8 +15,8 @@
   --ok-fg: #0f4d28;
   --hold-bg: #fff1cc;
   --hold-fg: #6a3d00;
-  --sold-bg: #eceff5;
-  --sold-fg: #24304d;
+  --sold-bg: #c10500;
+  --sold-fg: #fff;
   --sample-bg: #fff3f1;
   --sample-fg: #8d120c;
   --plate-a: #ffffff;
@@ -1138,7 +1138,7 @@ html[data-contrast="high"] {
   --hold-bg: #000;
   --hold-fg: #ffe14a;
   --sold-bg: #000;
-  --sold-fg: #fff;
+  --sold-fg: #ff5a4f;
   --sample-bg: #000;
   --sample-fg: #fff;
   --plate-a: #000;
