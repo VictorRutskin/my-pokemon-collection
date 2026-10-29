@@ -94,6 +94,7 @@ type Draft = {
   notesEn?: string
   tagHe?: string
   tagEn?: string
+  status?: ListingStatus
   image: string
   altHe: string
   altEn: string
@@ -139,7 +140,7 @@ function entry(draft: Draft): Listing {
     priceForAll: draft.priceForAll ?? false,
     offers,
     quantity,
-    status: "available",
+    status: draft.status ?? "available",
     notesHe:
       draft.notesHe ??
       (draft.price == null
@@ -201,6 +202,7 @@ export const listings: Listing[] = [
     titleEn: "ETB, Twilight Masquerade",
     year: "2024",
     price: 400,
+    status: "sold",
     image: "twilight-etb",
     altHe: "תצלום של קופסת ETB סגורה, Twilight Masquerade",
     altEn: "Photo of a sealed Twilight Masquerade elite trainer box",
@@ -214,6 +216,7 @@ export const listings: Listing[] = [
     titleEn: "ETB, Stellar Crown",
     year: "2024",
     price: 500,
+    status: "sold",
     image: "stellar-etb",
     altHe: "תצלום של קופסת ETB סגורה, Stellar Crown",
     altEn: "Photo of a sealed Stellar Crown elite trainer box",
@@ -227,6 +230,7 @@ export const listings: Listing[] = [
     titleEn: "ETB, Astral Radiance",
     year: "2022",
     price: 400,
+    status: "sold",
     image: "astral-etb",
     altHe: "תצלום של קופסת ETB סגורה, Astral Radiance",
     altEn: "Photo of a sealed Astral Radiance elite trainer box",
@@ -240,6 +244,7 @@ export const listings: Listing[] = [
     titleEn: "ETB, Shrouded Fable",
     year: "2024",
     price: 400,
+    status: "sold",
     image: "shrouded-etb",
     altHe: "תצלום של קופסת ETB סגורה, Shrouded Fable",
     altEn: "Photo of a sealed Shrouded Fable elite trainer box",
@@ -253,6 +258,7 @@ export const listings: Listing[] = [
     titleEn: "ETB, Silver Tempest",
     year: "2022",
     price: 500,
+    status: "sold",
     image: "silver-etb",
     altHe: "תצלום של קופסת ETB סגורה, Silver Tempest",
     altEn: "Photo of a sealed Silver Tempest elite trainer box",
@@ -279,6 +285,7 @@ export const listings: Listing[] = [
     titleEn: "ETB, Journey Together",
     year: "2025",
     price: 400,
+    status: "sold",
     image: "journey-etb",
     altHe: "תצלום של קופסת ETB סגורה, Journey Together",
     altEn: "Photo of a sealed Journey Together elite trainer box",
@@ -292,6 +299,7 @@ export const listings: Listing[] = [
     titleEn: "ETB, Surging Sparks",
     year: "2024",
     price: 400,
+    status: "sold",
     image: "sparks-etb",
     altHe: "תצלום של קופסת ETB סגורה, Surging Sparks",
     altEn: "Photo of a sealed Surging Sparks elite trainer box",
@@ -323,6 +331,7 @@ export const listings: Listing[] = [
     titleEn: "ETB, 151",
     year: "2023",
     price: 1800,
+    status: "sold",
     condition: "case",
     tagHe: "כולל אקריל",
     tagEn: "Acrylic included",
@@ -341,6 +350,7 @@ export const listings: Listing[] = [
     titleEn: "ETB, Fusion Strike",
     year: "2021",
     price: 800,
+    status: "sold",
     image: "fusion-etb",
     altHe: "תצלום של קופסת ETB סגורה, Fusion Strike",
     altEn: "Photo of a sealed Fusion Strike elite trainer box",

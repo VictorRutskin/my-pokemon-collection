@@ -18,6 +18,7 @@ export function kindLabel(c: Copy, kind: ProductKind): string {
 
 /** A together-price listing is one lot, even when it holds several pieces. */
 export function unitsLeft(listing: Listing): number {
+  if (listing.status === "sold") return 0
   return listing.priceForAll ? 1 : listing.quantity
 }
 
