@@ -426,6 +426,7 @@ export const listings: Listing[] = [
     titleEn: "Japanese booster box, Inferno X",
     language: "ja",
     price: 450,
+    status: "sold",
     image: "inferno-box",
     altHe: "תצלום של בוסטר בוקס יפני סגור, Inferno X",
     altEn: "Photo of a sealed Japanese Inferno X booster box",
